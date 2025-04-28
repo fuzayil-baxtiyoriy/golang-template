@@ -1,0 +1,8 @@
+project:
+  name: Golang Template
+  version: 0.0.1
+
+logger:
+  level: debug # available debug | info  | error |
+  format: text
+  

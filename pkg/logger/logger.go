@@ -17,9 +17,9 @@ const (
 	InfoLvl  = "info"
 	DebugLvl = "debug"
 	ErrorLvl = "error"
-
 	TextFormat = "text"
 	JsonFormat = "json"
+	
 )
 
 var (
