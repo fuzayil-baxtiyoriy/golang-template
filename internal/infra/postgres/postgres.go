@@ -29,3 +29,10 @@ func NewConnPool(cfg *config.Config) (*pgxpool.Pool, error) {
 
 	return pool, nil
 }
+
+func BuildDSN(cfg *config.Config) string {
+	return fmt.Sprintf(
+		"postgres://%s:%s@%s:%d/%s?sslmode=disable",
+		cfg.Postgres.User, cfg.Postgres.Password, cfg.Postgres.Host, cfg.Postgres.Port, cfg.Postgres.Db,
+	)
+}

@@ -1,5 +1,7 @@
 package config
 
+import "time"
+
 type Project struct {
 	Name    string `yaml:"name" validate:"required"`
 	Domain  string `env:"DOMAIN" validate:"required"`
@@ -18,9 +20,16 @@ type Postgres struct {
 	User     string `env:"POSTGRES_USER"     validate:"required"`
 	Password string `env:"POSTGRES_PASSWORD" validate:"required"`
 }
+
+type Http struct {
+	TimeOut         time.Duration `yaml:"timeout" validate:"required"`
+	IdleTimeout     time.Duration `yaml:"idle_timeout" validate:"required"`
+	MaxShutdownTime time.Duration `yaml:"max_shutdown_time" validate:"required"`
+}
 type Config struct {
 	AppMode  string  `env:"APP_MODE"`
 	Project  Project `yaml:"project"`
 	Logger   Logger  `yaml:"logger"`
 	Postgres Postgres
+	Http     Http
 }

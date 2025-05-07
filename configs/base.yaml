@@ -5,4 +5,9 @@ project:
 logger:
   level: debug # available debug | info  | error |
   format: text
+
+http:
+  timeout: 40s
+  idle_timeout: 120s
+  max_shutdown_time: 45s # Should be greater than timeout
   
